@@ -1,0 +1,7 @@
+DROP TABLE if exists users;
+DROP TABLE if exists brackets;
+DROP TABLE if exists tournaments;
+DROP TABLE if exists players;
+DROP TABLE if exists countries;
+DROP TABLE if exists matches;
+
