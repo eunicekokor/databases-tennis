@@ -1,11 +1,11 @@
 --
 -- This script creates a table for brackets
 --
--- Usage: psql [link to posgresdb] < tables/001-brackets.psql
+-- Usage: psql -U eek2138 -h w4111a.eastus.cloudapp.azure.com proj1part2 < tables/001-brackets.psql
 --
 
 CREATE TABLE Brackets(            -- merged with bracket of relationship set
-  b_id CHAR(12) SERIAL,         -- synthetic key to differentiate brackets
+  b_id SERIAL,         -- synthetic key to differentiate brackets
   tournament_name CHAR(20) NOT NULL,      -- each bracket associated with exactly 1 tournament
   tournament_year SMALLINT NOT NULL,
   true BOOLEAN NOT NULL,
