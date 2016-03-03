@@ -6,9 +6,9 @@
 
 CREATE TABLE Users(
     u_id SERIAL, 
-    password CHAR(12), 
-    name CHAR(20), 
-    email CHAR(20), 
+    password CHAR(16), 
+    name CHAR(100), 
+    email CHAR(100), 
     PRIMARY KEY (u_id),
     UNIQUE(email)
 );
