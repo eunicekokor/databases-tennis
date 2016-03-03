@@ -8,16 +8,16 @@ CREATE TABLE Brackets(            -- merged with bracket of relationship set
   b_id SERIAL,         -- synthetic key to differentiate brackets
   tournament_name CHAR(20) NOT NULL,      -- each bracket associated with exactly 1 tournament
   tournament_year SMALLINT NOT NULL,
-  true BOOLEAN NOT NULL,
-  creator_id CHAR(12) NOT NULL,       -- each bracket created by exactly 1 user
+  true_bracket BOOLEAN NOT NULL,
+  creator_id INTEGER NOT NULL,       -- each bracket created by exactly 1 user
   made_date DATE,
   last_save DATE,
   completed BOOLEAN,
   locked BOOLEAN,
   score SMALLINT,
   PRIMARY KEY (b_id),
-  FOREIGN KEY creator_id REFERENCES Users(u_id),
+  FOREIGN KEY (creator_id) REFERENCES Users(u_id)
     ON DELETE CASCADE,        -- delete brackets upon deletion of user
-  FOREIGN KEY (tournament_name, tournament_year) REFERENCES Tournaments(name, year),
+  FOREIGN KEY (tournament_name, tournament_year) REFERENCES Tournaments(name, year)
     ON DELETE CASCADE         -- deletes brackets on tournament deletion
 )

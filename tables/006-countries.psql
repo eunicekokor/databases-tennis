@@ -1,0 +1,4 @@
+CREATE TABLE Countries( name CHAR(20),
+flag bytea, 
+PRIMARY KEY (name)
+);

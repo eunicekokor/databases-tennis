@@ -1,0 +1,25 @@
+CREATE TABLE Matches(
+tournament_name CHAR(20) NOT NULL,
+tournament_year SMALLINT NOT NULL,
+round CHAR(3),
+round_number SMALLINT,
+winner_set1_games SMALLINT,
+winner_set2_games SMALLINT,
+winner_set3_games SMALLINT,
+winner_set4_games SMALLINT,
+winner_set5_games SMALLINT,
+loser_set1_games SMALLINT,
+loser_set2_games SMALLINT,
+loser_set3_games SMALLINT,
+loser_set4_games SMALLINT,
+loser_set5_games SMALLINT,
+winner INTEGER NOT NULL,
+loser INTEGER NOT NULL,
+PRIMARY KEY (tournament_name, tournament_year, round, round_number),
+FOREIGN KEY (tournament_name, tournament_year) REFERENCES Tournaments(name, year)
+ON DELETE CASCADE,
+FOREIGN KEY (winner) REFERENCES Players(p_id)
+ON DELETE NO ACTION,
+FOREIGN KEY (loser) REFERENCES Players(p_id)
+ON DELETE NO ACTION
+)

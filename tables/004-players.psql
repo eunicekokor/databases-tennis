@@ -1,0 +1,9 @@
+CREATE TABLE Players(
+p_id SERIAL,
+name CHAR(20),
+rank SMALLINT,
+birth DATE,
+country CHAR(20) NOT NULL,
+PRIMARY KEY (p_id),
+FOREIGN KEY (country) REFERENCES Countries(name) ON DELETE NO ACTION
+);

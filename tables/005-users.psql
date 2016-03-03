@@ -1,0 +1,8 @@
+CREATE TABLE Users(
+u_id SERIAL, 
+password CHAR(12), 
+name CHAR(20), 
+email CHAR(20), 
+PRIMARY KEY (u_id),
+UNIQUE(email)
+);
