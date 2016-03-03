@@ -1,8 +1,14 @@
+--
+-- This script creates a table for brackets
+--
+-- Usage: psql -U eek2138 -h w4111a.eastus.cloudapp.azure.com proj1part2 < tables/003-tournaments.psql
+--
+
 CREATE TABLE Tournaments( 
-name CHAR(20),
-year SMALLINT,
-level SMALLINT,
-location CHAR(20), 
-surface CHAR(10),
-PRIMARY KEY (name, year)
+    name CHAR(20),
+    year SMALLINT,
+    level SMALLINT,
+    location CHAR(20), 
+    surface CHAR(10),
+    PRIMARY KEY (name, year)
 );

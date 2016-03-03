@@ -1,4 +1,11 @@
-CREATE TABLE Countries( name CHAR(20),
-flag bytea, 
-PRIMARY KEY (name)
+--
+-- This script creates a table for brackets
+--
+-- Usage: psql -U eek2138 -h w4111a.eastus.cloudapp.azure.com proj1part2 < tables/006-countries.psql
+--
+
+CREATE TABLE Countries( 
+    name CHAR(20),
+    flag bytea, 
+    PRIMARY KEY (name)
 );

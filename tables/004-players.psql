@@ -1,9 +1,15 @@
+--
+-- This script creates a table for brackets
+--
+-- Usage: psql -U eek2138 -h w4111a.eastus.cloudapp.azure.com proj1part2 < tables/004-players.psql
+--
+
 CREATE TABLE Players(
-p_id SERIAL,
-name CHAR(20),
-rank SMALLINT,
-birth DATE,
-country CHAR(20) NOT NULL,
-PRIMARY KEY (p_id),
-FOREIGN KEY (country) REFERENCES Countries(name) ON DELETE NO ACTION
+    p_id SERIAL,
+    name CHAR(20),
+    rank SMALLINT,
+    birth DATE,
+    country CHAR(20) NOT NULL,
+    PRIMARY KEY (p_id),
+    FOREIGN KEY (country) REFERENCES Countries(name) ON DELETE NO ACTION
 );
