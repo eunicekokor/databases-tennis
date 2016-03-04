@@ -32,7 +32,7 @@ def main1():
       surface = row[2]
     else:
       surface = 'NULL'
-    print 'INSERT INTO TOURNAMENTS (name, year, level, surface) VALUES ({},{},{},{});'.format(tourn_name, year,level, surface)
+    print 'INSERT INTO TOURNAMENTS (name, year, level, surface) VALUES (\'{}\',\'{}\',\'{}\',\'{}\');'.format(tourn_name, year,level, surface)
 
 
 #Run main
