@@ -6,8 +6,8 @@
 
 CREATE TABLE Players(
     p_id SERIAL,
-    first_name CHAR(30),
-    last_name CHAR(30),
+    first_name CHAR(40),
+    last_name CHAR(40),
     rank SMALLINT,
     birth DATE NULL,
     country CHAR(40) NOT NULL,
