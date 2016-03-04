@@ -7,7 +7,7 @@
 CREATE TABLE Tournaments(
     name CHAR(20),
     year SMALLINT,
-    level SMALLINT,
+    level CHAR(1),
     surface CHAR(10),
     PRIMARY KEY (name, year)
 );
