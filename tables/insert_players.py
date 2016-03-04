@@ -6,8 +6,6 @@ import sys
 
 # Length of batches to be inserted
 batch = 100
-# Expected length of each row
-row_len = 6
 
 countries_data = '../additional_data/countries_map_data.csv'
 rankings_data = '../../tennis_atp/atp_rankings_current.csv'
