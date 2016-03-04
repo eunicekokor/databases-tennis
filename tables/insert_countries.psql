@@ -189,3 +189,4 @@ INSERT INTO Countries(name, flag) VALUES ('Cape Verde',NULL);
 INSERT INTO Countries(name, flag) VALUES ('Palau',NULL);
 INSERT INTO Countries(name, flag) VALUES ('Nepal',NULL);
 INSERT INTO Countries(name, flag) VALUES ('Yemen',NULL);
+INSERT INTO Countries(name, flag) VALUES ('Unknown',NULL);
