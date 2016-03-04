@@ -7,7 +7,7 @@
 CREATE TABLE Matches(
     tournament_name CHAR(100) NOT NULL,
     tournament_year SMALLINT NOT NULL,
-    round CHAR(3),
+    round VARCHAR(3),
     round_number SMALLINT,
     winner_set1_games SMALLINT,
     winner_set2_games SMALLINT,

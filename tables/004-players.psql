@@ -6,11 +6,11 @@
 
 CREATE TABLE Players(
     p_id SERIAL,
-    first_name CHAR(40),
-    last_name CHAR(40),
+    first_name VARCHAR(40),
+    last_name VARCHAR(40),
     rank SMALLINT,
     birth DATE NULL,
-    country CHAR(40) NOT NULL,
+    country VARCHAR(40) NOT NULL,
     PRIMARY KEY (p_id),
     FOREIGN KEY (country) REFERENCES Countries(name) ON DELETE NO ACTION
 );

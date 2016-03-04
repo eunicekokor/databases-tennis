@@ -7,7 +7,7 @@
 CREATE TABLE Placed_In( 
     player_id INTEGER,
     bracket INTEGER,
-    round CHAR(3),
+    round VARCHAR(3),
     round_number SMALLINT,
     PRIMARY KEY (bracket, player_id), 
     FOREIGN KEY (player_id) REFERENCES Players(p_id)

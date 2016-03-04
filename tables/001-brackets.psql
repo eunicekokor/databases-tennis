@@ -6,7 +6,7 @@
 
 CREATE TABLE Brackets(            -- merged with bracket of relationship set
   b_id SERIAL,         -- synthetic key to differentiate brackets
-  tournament_name CHAR(100) NOT NULL,      -- each bracket associated with exactly 1 tournament
+  tournament_name VARCHAR(100) NOT NULL,      -- each bracket associated with exactly 1 tournament
   tournament_year SMALLINT NOT NULL,
   true_bracket BOOLEAN NOT NULL,
   creator_id INTEGER NOT NULL,       -- each bracket created by exactly 1 user
