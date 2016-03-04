@@ -22,7 +22,6 @@ def main1():
       tourn_name = 'NULL'
     if row[0] != '':
       year = row[0].split('-')[0]
-      print year
     else:
       year = 'NULL'
     if row[4] != '':
