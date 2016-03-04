@@ -21,7 +21,7 @@ def rankings_map(rankings_filename):
 	rankings_file = open(rankings_filename,'r')
 	rankings_reader = csv.reader(rankings_file)
 	for row in rankings_reader:
-		rmap[2] = [1]
+		rmap[row[2]] = row[1]
 	return rmap
 
 def main1():
@@ -94,16 +94,16 @@ def main2():
 	sys.stdout.write(';\n')
 
 def main3():
+	print 'set datestyle = ymd;'
 	cmap = country_map(countries_data)
 	rmap = rankings_map(rankings_data)
 	player_file = open(player_data,'r')
 	player_reader = csv.reader(player_file)
-	sys.stdout.write('INSERT INTO PLAYERS (first_name, last_name, rank, birth, country) VALUES') 
 	first = True
 	i = 0
 	for row in player_reader:
 		if (i % 100 == 0):
-			sys.stdout.write('INSERT INTO PLAYERS (first_name, last_name, rank, birth, country) VALUES') 
+			sys.stdout.write('INSERT INTO PLAYERS (first_name, last_name, rank, birth, country) VALUES ') 
 		i = i + 1
 		if not first:
 			sys.stdout.write(',')
@@ -120,14 +120,18 @@ def main3():
 		if row[0] in rmap:
 			rank = rmap[row[0]]
 		else:
-			rank = "NULL"
-		if row[4] != '':
+			rank = 'NULL'
+		if len(row[4]) == 8:
 			bday = row[4]
+			if (bday[4:6] == '00'):
+				bday = bday[:5] + '1' + bday[6:7] + '1'
 			birth = bday[0:4] + '-' + bday[4:6] + '-' + bday[6:]
 		else:
 			birth = 'epoch'
 		if (row[5] != ''):
 			country = cmap[row[5]]
+			if (country == ''):
+				country = 'NULL'
 		else:
 			country = 'NULL'
 		sys.stdout.write(' (\''+first_name+'\',\''+last_name+'\','+rank+',\''+birth+'\',\''+country+'\')')
