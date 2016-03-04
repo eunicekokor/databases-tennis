@@ -5,9 +5,9 @@
 --
 
 CREATE TABLE Tournaments(
-    name CHAR(20),
+    name CHAR(100),
     year SMALLINT,
     level CHAR(1),
-    surface CHAR(10),
+    surface CHAR(25),
     PRIMARY KEY (name, year)
 );

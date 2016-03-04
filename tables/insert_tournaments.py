@@ -4,7 +4,7 @@ import csv
 import sys
 
 match_data = '../tennis_atp/atp_matches_2015.csv'
-
+tourney_dict = {}
 def main1():
   match_file = open(match_data,'r')
   match_reader = csv.reader(match_file)
@@ -14,8 +14,9 @@ def main1():
     level SMALLINT,
     location CHAR(20),
     surface CHAR(10)'''
-
+  count = 0
   for row in match_reader:
+    count += 1
     if row[1] != '':
       tourn_name = row[1]
     else:
@@ -32,7 +33,12 @@ def main1():
       surface = row[2]
     else:
       surface = 'NULL'
-    print 'INSERT INTO TOURNAMENTS (name, year, level, surface) VALUES (\'{}\',\'{}\',\'{}\',\'{}\');'.format(tourn_name, year,level, surface)
+    if tourn_name not in tourney_dict:
+      tourney_dict[tourn_name] = {'year': year, 'level': level, 'surface': surface}
+
+  for k,v in tourney_dict.iteritems():
+    print 'INSERT INTO TOURNAMENTS (name, year, level, surface) VALUES (\'{}\',\'{}\',\'{}\',\'{}\');'.format(k, v['year'],v['level'], v['surface'])
+
 
 
 #Run main
