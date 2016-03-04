@@ -1,6 +1,7 @@
 # This is a script to generate tournament & match data
 
 import csv
+import datetime
 import sys
 
 match_data = '../tennis_atp/atp_matches_2015.csv'
@@ -36,10 +37,22 @@ def main1():
     if tourn_name not in tourney_dict:
       tourney_dict[tourn_name] = {'year': year, 'level': level, 'surface': surface}
 
-  for k,v in tourney_dict.iteritems():
-    print 'INSERT INTO TOURNAMENTS (name, year, level, surface) VALUES (\'{}\',\'{}\',\'{}\',\'{}\');'.format(k, v['year'],v['level'], v['surface'])
+  # for k,v in tourney_dict.iteritems():
+  #   print 'INSERT INTO TOURNAMENTS (name, year, level, surface) VALUES (\'{}\',\'{}\',\'{}\',\'{}\');'.format(k, v['year'],v['level'], v['surface'])
+  return tourney_dict
 
-
+def main2():
+  tourney =  main1()
+  #creates true brackets
+  now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+  creator_id = 3
+  true_bracket = True
+  completed = True
+  locked = True
+  score = 1000 #some maximum value
+  for k,v in tourney.iteritems():
+    print 'INSERT INTO BRACKETS (tournament_name, tournament_year, true_bracket, creator_id, made_date, last_save, completed, locked, score) VALUES (\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\');'.format(k, v['year'], true_bracket, creator_id, now, now, completed, locked, score)
 
 #Run main
-main1()
+
+main2()
