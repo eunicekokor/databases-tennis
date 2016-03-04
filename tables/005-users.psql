@@ -5,10 +5,10 @@
 --
 
 CREATE TABLE Users(
-    u_id SERIAL, 
-    password CHAR(16), 
-    name CHAR(100), 
-    email CHAR(100), 
+    u_id SERIAL,
+    password VARCHAR(16),
+    name VARCHAR(100),
+    email VARCHAR(100),
     PRIMARY KEY (u_id),
     UNIQUE(email)
 );

@@ -45,12 +45,16 @@ def main2():
   tourney =  main1()
   #creates true brackets
   now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-  creator_id = 3
-  true_bracket = True
-  completed = True
-  locked = True
-  score = 1000 #some maximum value
+  creator_id = 1
+  true_bracket = False
+  completed = False
+  locked = False
+  score = 22 #some maximum value
+  count = 5
   for k,v in tourney.iteritems():
+    if count == 0:
+      break
+    count -= 1
     print 'INSERT INTO BRACKETS (tournament_name, tournament_year, true_bracket, creator_id, made_date, last_save, completed, locked, score) VALUES (\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\',\'{}\');'.format(k, v['year'], true_bracket, creator_id, now, now, completed, locked, score)
 
 #Run main
