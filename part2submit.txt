@@ -1,0 +1,19 @@
+part2submit.txt
+
+Ian Covert icc2115 Eunice Kokor eek2138
+In the eek2138 database
+
+
+For each court that is grass find the number of brackets who have played on that court
+SELECT (T.name,T.year), COUNT(*) AS count
+FROM Tournaments T, Placed_In P, Players Pl
+WHERE Pl.p_id=P.player_id T.surface='clay'
+GROUP BY (T.name, T.year)
+
+List of top 10 player with highest winning percentages in 2015
+SELECT Pl.p_id, AVG(*) AS wins
+FROM Players Pl, Matches M
+WHERE M.tournament_year=2015, Pl.p_id=M.winner
+GROUP BY Pl.p_id
+LIMIT 10
+Highest Scoring Tournament
